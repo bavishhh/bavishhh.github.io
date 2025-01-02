@@ -17,13 +17,6 @@ ninja.data = [{
             window.location.href = "/blog/";
           },
         },{
-        id: 'social-bluesky',
-        title: 'Bluesky',
-        section: 'Socials',
-        handler: () => {
-          window.open("bavish", "_blank");
-        },
-      },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
@@ -45,11 +38,11 @@ ninja.data = [{
           window.open("https://www.linkedin.com/in/bavish-k", "_blank");
         },
       },{
-        id: 'social-rss',
-        title: 'RSS Feed',
+        id: 'social-bluesky',
+        title: 'Bluesky',
         section: 'Socials',
         handler: () => {
-          window.open("/feed.xml", "_blank");
+          window.open("https://bsky.app/profile/bavish.bsky.social", "_blank");
         },
       },{
         id: 'social-x',
