@@ -12,7 +12,7 @@ profile:
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 ---
 
 I am a research fellow at Robert Bosch Centre for DS and AI (RBCDSAI) at the Indian Institute of Technology MadrasI am advised by Prof. Balaraman Ravindran. I am interested in continual learning, generalization in deep learning and reinforcement learning. 
