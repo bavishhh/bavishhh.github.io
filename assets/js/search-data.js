@@ -16,7 +16,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{
+        },{id: "post-a-post-with-table-of-contents",
+      
+        title: "a post with table of contents",
+      
+      description: "an example of a blog post with table of contents",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2023/test/";
+        
+      },
+    },{id: "post-a-distill-style-blog-post",
+      
+        title: "a distill-style blog post",
+      
+      description: "an example of a distill-style blog post and main elements",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2021/test2/";
+        
+      },
+    },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
