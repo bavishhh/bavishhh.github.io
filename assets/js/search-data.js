@@ -16,26 +16,48 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-a-post-with-table-of-contents",
+        },{id: "post-hyperbolic-deep-reinforcement-learning",
       
-        title: "a post with table of contents",
+        title: "Hyperbolic Deep Reinforcement Learning",
       
-      description: "an example of a blog post with table of contents",
+      description: "",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2023/test/";
+          window.location.href = "/blog/2024/hyperbolic-deep-rl/";
         
       },
-    },{id: "post-a-distill-style-blog-post",
+    },{id: "post-multi-task-learning",
       
-        title: "a distill-style blog post",
+        title: "Multi-task Learning",
       
-      description: "an example of a distill-style blog post and main elements",
+      description: "",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2021/test2/";
+          window.location.href = "/blog/2024/multi-task-learning/";
+        
+      },
+    },{id: "post-meta-learning",
+      
+        title: "Meta Learning",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/meta-learning/";
+        
+      },
+    },{id: "post-graph-laplacian",
+      
+        title: "Graph Laplacian",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2023/graph-laplacian/";
         
       },
     },{
