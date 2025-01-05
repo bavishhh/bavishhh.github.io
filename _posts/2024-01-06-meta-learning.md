@@ -26,8 +26,8 @@ pretty_table: true
 
 
 - Bayesian view: 
-	- Shared structure between tasks is task parameters $\phi_i$ become independent when conditioned on $\theta$ ($\phi_i \perp\!\!\!\perp \phi_j \vert \theta$), and are otherwise not independent $\implies$ lower entropy distribution while conditioned on theta compared to prior over $\phi_i$ 
-	- Therefore, once we identify $\theta$ learning $\phi$ should be faster since we have fewer bits to uncover from training data points
+	- Shared structure between tasks is task parameters $$ \phi_i $$ become independent when conditioned on $$ \theta $$ ($$ \phi_i \perp\!\!\!\perp \phi_j \vert \theta $$), and are otherwise not independent $$ \implies $$ lower entropy distribution while conditioned on theta compared to prior over $$ \phi_i $$ 
+	- Therefore, once we identify $$ \theta $$ learning $$ \phi $$ should be faster since we have fewer bits to uncover from training data points
 
 ### Meta Supervised Learning
 
@@ -58,7 +58,7 @@ $$ \large{y^{ts} = f_\theta(\mathcal{D}^{tr}, x^{ts})} $$
 
 ### Optimization based approach
 
-- **Algorithm** ([[MAML]])
+- **Algorithm** (MAML)
 	1. Randomly initialize $$ \theta $$
 	2. Sample task (or mini batch of tasks)
 	3. Sample disjoint datasets $$ \mathcal{D}^{tr}_i, \mathcal{D}^{test}_i $$ from $$ \mathcal{D}_i $$ 
