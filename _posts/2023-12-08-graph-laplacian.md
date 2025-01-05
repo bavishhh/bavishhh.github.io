@@ -17,7 +17,7 @@ $$ L = \nabla\cdot \nabla f $$
     - What is the meaning of gradient of a graph function?
     - What is the divergence of the graph gradient?
 - A graph function assings a number to each node. Eg: The number of friends a person has in a social network graph.
-- In eucledian space, gradient is the change in the function in each direction. Extending this to graphs, the gradient is the array of difference of function values along each edge.
+- In eucledian space, gradient is the change in the  function in each direction. Extending this to graphs, the gradient is the array of difference of function values along each edge.
 
 $$ \nabla f = K^Tf $$
 
@@ -27,12 +27,12 @@ where K is the incidence matrix, i.e., for every edge (u, v), K\[u, e\]= +1 and 
 
 $$ \nabla g = Kg \\ = KK^Tf $$
 
-Therefore, $L = KK^T = D - W$ where D is the degree matrix and A is the adjacency matrix.
+Therefore, $$ L = KK^T = D - W $$ where D is the degree matrix and A is the adjacency matrix.
 
-- The matrix $KK^T$has diagonal entries equal to the degree of the vertex and the {ij}-th entry is the number of edges connecting the vertices i and j.
+- The matrix $$ KK^T $$ has diagonal entries equal to the degree of the vertex and the {ij}-th entry is the number of edges connecting the vertices i and j.
 - Laplacian is the second derivative, so it tells how smooth the function is. Similarly, the laplacian of a graph function tells us how smooth the graph function is.
 - In the case of graphs, a smooth function is the one which doesn’t change abruptly when you traverse along the edges, but it can jump abruptly along nodes that are not connected.
-- The gradient maps a function on nodes to function on edges, and the divergence maps it back to function on nodes ($KK^T$)
+- The gradient maps a function on nodes to function on edges, and the divergence maps it back to function on nodes ($$ KK^T $$)
 
 **References:**
 

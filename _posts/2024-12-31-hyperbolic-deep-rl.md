@@ -26,18 +26,18 @@ related_posts: false
 
 ### Method
 
-- Definition: $\delta$-hyperbolicity
+- Definition: $$\delta$$-hyperbolicity
     - Geodesic triangle — for any three points A, B, and C in the space, consider the triangle formed by connecting the points pairwise using the shortest line segment (in that space).
-    - For every point on a line segment, if there exists a point on the other line segment within $\delta$ distance, then the triangle is called $\delta$-slim.
-    - A metric space is called $\delta$-hyperbolic if every geodesic triangle ABC is $\delta$-slim.
-    - For a tree, any point simultaneously lies on two line segments, so $\delta = 0$.
-    - $\delta$-hyperbolicity can be interpreted as a measure of deviation from the tree structure.
+    - For every point on a line segment, if there exists a point on the other line segment within $$\delta$$ distance, then the triangle is called $$\delta$$-slim.
+    - A metric space is called $$\delta$$-hyperbolic if every geodesic triangle ABC is $$\delta$$-slim.
+    - For a tree, any point simultaneously lies on two line segments, so $$\delta = 0$$.
+    - $$\delta$$-hyperbolicity can be interpreted as a measure of deviation from the tree structure.
 - The learned encodings of the states span finite subset of eucledian space — a discrete metric space
 - Hyperbolicity of RL
     - State evolution in a trajectory can be conceptualized as a tree due to the Markovian property.
     - Non-hierarchical information of the state (such as general appearance) should be ignored, otherwise the policy and value networks overfit to spurious correlations
-    - Train the PPO agent with IMPALA architecture and analyze how performance and $\delta$-hyperbolicity measure evolove during the training.
-        - Compute the $\delta$-hyperbolicity for the learned representations
+    - Train the PPO agent with IMPALA architecture and analyze how performance and $$\delta$$-hyperbolicity measure evolove during the training.
+        - Compute the $$\delta$$-hyperbolicity for the learned representations
         - Normalize using the diameter so that the values lie between 0 and 1.
         - If it is 0, then perferct tree like structure; if 1, then perfect non-hyperbolic space..
 - Training with hyperbolic latent spaces
@@ -49,16 +49,16 @@ related_posts: false
             - S-RYM — Spectrally Regularized Hyperbolic Mappings
                 - The paper takes inspiration from GAN literature, where there is non-stationarity as well, to make use of spectral normalization, which has been shown to prevent exploding gradients phenomenon.
                 - Spectral normalization is applied to all eucledian layers expect the final hyperbolic part.
-                - final latent representation is scaled before mapping to $\mathbb{B}^n$ so that modifying the dimensionality of representations should not significantly affect their own and gradient’s magnitudes
+                - final latent representation is scaled before mapping to $$\mathbb{B}^n$$ so that modifying the dimensionality of representations should not significantly affect their own and gradient’s magnitudes
                 - this resloves the optimization challenges, achieves high performance compared to the eucledian implementation, and maintains low gradient norm.
 
 ### Observations
 
-- $\delta$ -hyperbolicity
-    - $\delta$ drops to low values in the inital training period for all environements
-    - In fruitbot and starpilot, $\delta$ keeps further decreasing after the intial drop
+- $$\delta$$ -hyperbolicity
+    - $$\delta$$ drops to low values in the inital training period for all environements
+    - In fruitbot and starpilot, $$\delta$$ keeps further decreasing after the intial drop
         - In these environments, the generalization gap is low
-    - In bigfish and dogeball, $\delta$ starts increasing slowly after the initial drop, indicating the features start losing their hierarchical strucutre.
+    - In bigfish and dogeball, $$\delta$$ starts increasing slowly after the initial drop, indicating the features start losing their hierarchical strucutre.
         - In these enviroments, the agent starts overfitting and the test performance is low.
 - S-RYM
     - Teseted on ProcGen benchmark
@@ -76,12 +76,12 @@ related_posts: false
 
 ## References
 
-https://freedium.cfd/https://towardsdatascience.com/hyperbolic-deep-reinforcement-learning-b2de787cf2f7
+<https://towardsdatascience.com/hyperbolic-deep-reinforcement-learning-b2de787cf2f7>
 
-https://www.reddit.com/r/MachineLearning/comments/xzfmk8/r_hyperbolic_deep_reinforcement_learning_they/
+<https://www.reddit.com/r/MachineLearning/comments/xzfmk8/r_hyperbolic_deep_reinforcement_learning_they/>
 
-https://bjlkeng.io/posts/hyperbolic-geometry-and-poincare-embeddings/
+<https://bjlkeng.io/posts/hyperbolic-geometry-and-poincare-embeddings/>
 
 ## Implementations
 
-https://github.com/twitter-research/hyperbolic-rl
+<https://github.com/twitter-research/hyperbolic-rl>
