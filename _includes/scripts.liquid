@@ -216,7 +216,8 @@
   <!-- Analytics -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script defer src="{{ '/assets/js/google-analytics-setup.js' | relative_url | bust_file_cache }}"></script>
+  <script>function gtag(){window.dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-S6R82KYW08");</script>
+  <!-- script defer src="{{ '/assets/js/google-analytics-setup.js' | relative_url | bust_file_cache }}"></script -->
 {% endif %}
 
 {% if site.enable_cronitor_analytics %}
