@@ -8,73 +8,60 @@ giscus_comments: true
 related_posts: false
 ---
 
-> Notes of Paper Hyperbolic Deep Reinforcement Learning by Cetin *et al.*, 2023. [Link](https://openreview.net/pdf?id=TfBHFLgv77)  
+> Review of Paper Hyperbolic Deep Reinforcement Learning by Cetin *et al.*, 2023. [Link](https://openreview.net/pdf?id=TfBHFLgv77)  
 
-## Contributions
 
-- Show (experimentally) learning hierarchical features improve generalization
-- Regularization approach to stabilize the training of hyperbolic neural network for RL
+Representation learning is at the core of modern reinforcement learning (RL). The structure of the learned features determines how well an agent can generalize beyond its training environment. The paper *"Hyperbolic Deep Reinforcement Learning"* by Cetin et al. (2023) embeds the information in **hyperbolic space**, enabling the representations to capture the hierarchical structures present in the environment. 
 
-## Notes
+### Why Hyperbolic Geometry?
 
-### Prelims
+Much of the world is hierarchical. Consider decision trees, biological taxonomies, or even software function calls. Hyperbolic space is well suited for such data because it allows exponential growth of volume with radius, capturing tree-like relationships in a continuous setting.
 
-- Hyperbolic ML
-    - The geodesic (shortest path) between two points on the Poincare ball model is the arc perpendicular to the boundary.
-    - Hyperbolic spaces — continuous analog of trees
-    - The volume of the ball grows exponentially with the radius
+In the Poincaré ball model, geodesics appear as arcs that curve inward, perpendicular to the boundary. As a point moves outward from the origin, the space expands rapidly, offering more room for distinguishing fine-grained variations. This is in stark contrast to the linear growth in Euclidean space. As such, hyperbolic embeddings can be more compact and semantically meaningful for hierarchical structures.
 
-### Method
+In RL, trajectories induced by policies often form branching structures due to the Markovian property. Ignoring this structure during representation learning may encourage overfitting to superficial features.
 
-- Definition: $$\delta$$-hyperbolicity
-    - Geodesic triangle — for any three points A, B, and C in the space, consider the triangle formed by connecting the points pairwise using the shortest line segment (in that space).
-    - For every point on a line segment, if there exists a point on the other line segment within $$\delta$$ distance, then the triangle is called $$\delta$$-slim.
-    - A metric space is called $$\delta$$-hyperbolic if every geodesic triangle ABC is $$\delta$$-slim.
-    - For a tree, any point simultaneously lies on two line segments, so $$\delta = 0$$.
-    - $$\delta$$-hyperbolicity can be interpreted as a measure of deviation from the tree structure.
-- The learned encodings of the states span finite subset of eucledian space — a discrete metric space
-- Hyperbolicity of RL
-    - State evolution in a trajectory can be conceptualized as a tree due to the Markovian property.
-    - Non-hierarchical information of the state (such as general appearance) should be ignored, otherwise the policy and value networks overfit to spurious correlations
-    - Train the PPO agent with IMPALA architecture and analyze how performance and $$\delta$$-hyperbolicity measure evolove during the training.
-        - Compute the $$\delta$$-hyperbolicity for the learned representations
-        - Normalize using the diameter so that the values lie between 0 and 1.
-        - If it is 0, then perferct tree like structure; if 1, then perfect non-hyperbolic space..
-- Training with hyperbolic latent spaces
-    - Replacing the final relu and linear layer with exponential map and gyroplane fully connected layer led to underwhelming performance.
-        - Hyperbolic policy struggles to start exploring and becoming more deterministic with policy improvement as expected from PPO’s entropy bonus.
-            - This indicates optimization challenges of end-to-end training of RL with hyperbolic representations.
-            - Using techniques from prior work — careful initialization, representaiton clipping did not help.
-                - These techniques facilitate learning of approriate angular layouts initially. But in RL, the non-stationarity makes the early angular layouts suboptimal in the long run.
-            - S-RYM — Spectrally Regularized Hyperbolic Mappings
-                - The paper takes inspiration from GAN literature, where there is non-stationarity as well, to make use of spectral normalization, which has been shown to prevent exploding gradients phenomenon.
-                - Spectral normalization is applied to all eucledian layers expect the final hyperbolic part.
-                - final latent representation is scaled before mapping to $$\mathbb{B}^n$$ so that modifying the dimensionality of representations should not significantly affect their own and gradient’s magnitudes
-                - this resloves the optimization challenges, achieves high performance compared to the eucledian implementation, and maintains low gradient norm.
+### Measuring Hyperbolicity of Representations
 
-### Observations
+The authors introduce a geometric notion called *δ-hyperbolicity*. It's a way to quantify how close a metric space is to being tree-like. Imagine forming a triangle by connecting three points in the space using shortest paths. If every point on one side of the triangle lies within δ distance of some point on the other two sides, the triangle is called δ-slim. For trees, δ is zero.
 
-- $$\delta$$ -hyperbolicity
-    - $$\delta$$ drops to low values in the inital training period for all environements
-    - In fruitbot and starpilot, $$\delta$$ keeps further decreasing after the intial drop
-        - In these environments, the generalization gap is low
-    - In bigfish and dogeball, $$\delta$$ starts increasing slowly after the initial drop, indicating the features start losing their hierarchical strucutre.
-        - In these enviroments, the agent starts overfitting and the test performance is low.
-- S-RYM
-    - Teseted on ProcGen benchmark
-    - Tried with PPO and Rainbow DQN
-    - Tried random crop data augmentation (which is used to improve generalization) but was outperformed by hyperbolic implementation.
-    - Reduced the dimensionality of final representation from 256 to 32, which provided further improvement in performance.
-    - Tested on Atari, observed improvement over eucledian implementation.
+The authors compute this δ value for learned representations during training and normalize it using the diameter of the space, yielding a value between 0 and 1. A low δ indicates a highly hierarchical (tree-like) structure, while a high value suggests a flat, non-hierarchical space.
+
+### What Happens During Training?
+
+They analyze how δ changes over time when training PPO agents using the IMPALA architecture.  Initially, δ drops in all cases, indicating that representations begin to align with the underlying task hierarchy. In *FruitBot* and *StarPilot*, δ continues to drop, and agents generalize well. However, in *BigFish* and *Dodgeball*, δ starts increasing after an initial drop. These agents show signs of overfitting and struggle during test time.
+
+This pattern suggests that the evolution of δ-hyperbolicity during training may serve as an indicator of generalization capacity.
+
+### Training in Hyperbolic Space Is Hard
+
+The authors try to train agents where the final layers output representations directly in hyperbolic space. This involves replacing the final ReLU and linear layers with an exponential map and a gyroplane fully connected layer. But the performance drops. Exploration becomes difficult, and agents become prematurely deterministic, possibly due to optimization issues.
+
+Prior techniques such as careful initialization and representation clipping, which are effective in supervised settings, fail in the RL context due to the non-stationarity of the RL objective.
+
+### Enter Spectral Regularization (S-RYM)
+
+To address these challenges, the authors introduce a novel regularization strategy inspired by GAN training. Spectral normalization is applied to all Euclidean layers, stabilizing gradients and reducing sensitivity to initialization.
+
+Additionally, the final latent vector is scaled before being mapped to hyperbolic space. This ensures that variations in dimensionality do not amplify gradients unpredictably. The result is a training procedure that converges reliably and yields strong performance.
+
+This approach, called **Spectrally Regularized Hyperbolic Mappings (S-RYM)**, resolves optimization issues. Agents now perform competitively with or better than Euclidean baselines, and gradients remain well-behaved.
+
+### Experiments and Observations
+
+* **ProcGen**: Hyperbolic PPO and Rainbow DQN outperform baselines.
+* **Data Augmentation**: Even with random crop augmentations (a strong generalization baseline), hyperbolic agents still win.
+* **Dimensionality**: Reducing latent space from 256 to 32 improves performance, showing that hierarchical compression helps.
+* **Atari**: Gains carry over to Atari games, not just procedurally generated ones.
 
 ### Limitations
 
-- Spectral normalization limits the expressivity of the eucledian part of the network.
-- The training time is higher
-    - Most of the slowdown is due to the power iteration used in spectral normalization.
-- Fixed curvature might not always yield the appropriate inductive bias
+* Spectral normalization introduces computational overhead, primarily due to the power iteration.
+* The Euclidean part of the network loses some expressivity.
+* Fixed curvature of the hyperbolic space might not always encode the right inductive bias.
 
-## References
+
+### References
 
 <https://towardsdatascience.com/hyperbolic-deep-reinforcement-learning-b2de787cf2f7>
 
@@ -82,6 +69,6 @@ related_posts: false
 
 <https://bjlkeng.io/posts/hyperbolic-geometry-and-poincare-embeddings/>
 
-## Implementations
+### Implementations
 
 <https://github.com/twitter-research/hyperbolic-rl>
