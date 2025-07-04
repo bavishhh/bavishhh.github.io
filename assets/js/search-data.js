@@ -34,39 +34,6 @@ ninja.data = [{
           window.location.href = "/blog/2024/hyperbolic-deep-rl/";
         
       },
-    },{id: "post-multi-task-learning",
-      
-        title: "Multi-task Learning",
-      
-      description: "",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2024/multi-task-learning/";
-        
-      },
-    },{id: "post-meta-learning",
-      
-        title: "Meta Learning",
-      
-      description: "",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2024/meta-learning/";
-        
-      },
-    },{id: "post-graph-laplacian",
-      
-        title: "Graph Laplacian",
-      
-      description: "",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2023/graph-laplacian/";
-        
-      },
     },{
         id: 'social-email',
         title: 'email',
