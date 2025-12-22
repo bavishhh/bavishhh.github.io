@@ -14,7 +14,7 @@ ninja.data = [{
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/https:/drive.google.com/file/d/1wsyyaLyFbQJ5PbVNTJGxfuDrFuvgvDsm/view?usp=sharing";
+            window.location.href = "/https:/drive.google.com/file/d/1c9phRu7uOtZVlAmDyxJpnhDUCa352JxZ/view?usp=drive_link";
           },
         },{id: "nav-blog",
           title: "blog",
