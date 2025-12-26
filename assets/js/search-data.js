@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-hyperbolic-deep-reinforcement-learning",
+        },{id: "post-zotero-tips-and-tricks",
+      
+        title: "Zotero Tips and Tricks",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/zotero-tips/";
+        
+      },
+    },{id: "post-hyperbolic-deep-reinforcement-learning",
       
         title: "Hyperbolic Deep Reinforcement Learning",
       
