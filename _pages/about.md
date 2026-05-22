@@ -26,4 +26,4 @@ Previously, I was a research fellow (pre-doc) at Robert Bosch Centre for DS and 
 - **PREFINe: Preference-Based Implicit Reward and Cost Fine-Tuning for Safety Alignment** \\
   Richa Verma, **Bavish Kulur**, Sanjay Chawla, Balaraman Ravindran \\
   International Conference on Autonomous Agents and Multiagent Systems (AAMAS) 2026 \\
-  [Paper](https://openreview.net/attachment?id=N9XARRbqUP&name=pdf)
+  [Paper](https://arxiv.org/abs/2605.21225)
