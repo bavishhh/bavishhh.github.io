@@ -3,9 +3,10 @@
 # the socials will be displayed in the order they are defined here
 
 email: bavishkulur@gmail.com # your email address
+scholar_userid: 6cJGHZcAAAAJ # your Google Scholar ID 
 github_username: bavishhh # your GitHub user name
 linkedin_username: bavish-k # your LinkedIn user name
-bluesky_url: https://bsky.app/profile/bavish.bsky.social # your bluesky URL
+# bluesky_url: https://bsky.app/profile/bavish.bsky.social # your bluesky URL
 x_username: bavishhh # your X handle
 # acm_id: # your dl.acm.org/profile/id
 # blogger_url: # your blogger URL
@@ -31,7 +32,6 @@ x_username: bavishhh # your X handle
 # quora_username: # your Quora username
 # research_gate_profile: # your profile on ResearchGate
 # rss_icon: true # set to true to show the RSS icon
-# scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
 # scopus_id: # your profile on Scopus
 # semanticscholar_id: # your Semantic Scholar ID
 # spotify_id: # your spotify id

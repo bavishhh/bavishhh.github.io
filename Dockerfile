@@ -54,4 +54,4 @@ RUN bundle install --no-cache
 EXPOSE 8080
 
 # Remove the entry point script dependency
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "8080", "--livereload", "--incremental", "--verbose"]
+CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "8080", "--livereload", "--verbose"]
