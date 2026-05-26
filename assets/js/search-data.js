@@ -53,6 +53,13 @@ ninja.data = [{
           window.open("mailto:%62%61%76%69%73%68%6B%75%6C%75%72@%67%6D%61%69%6C.%63%6F%6D", "_blank");
         },
       },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=6cJGHZcAAAAJ", "_blank");
+        },
+      },{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
@@ -65,13 +72,6 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://www.linkedin.com/in/bavish-k", "_blank");
-        },
-      },{
-        id: 'social-bluesky',
-        title: 'Bluesky',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://bsky.app/profile/bavish.bsky.social", "_blank");
         },
       },{
         id: 'social-x',
