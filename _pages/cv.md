@@ -1,14 +1,12 @@
 ---
 title: cv
+layout: default
 nav: true
 nav_order: 1
+nav_url: /assets/pdf/resume.pdf
+nav_new_tab: true
 permalink: /cv/
-redirect_to: /assets/pdf/resume.pdf
+redirect: /assets/pdf/resume.pdf
 ---
 
-<iframe 
-    src="{{ '/assets/pdf/resume.pdf' | relative_url }}" 
-    width="100%" 
-    height="100%" 
-    style="border: none; margin: 0px">
-</iframe>
+[Open CV (PDF)]({{ '/assets/pdf/resume.pdf' | relative_url }})
