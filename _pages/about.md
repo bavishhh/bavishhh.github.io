@@ -19,9 +19,6 @@ I am a graduate student at the University of Alberta, part of the [RLAI](https:/
 
 Previously, I was a research fellow (pre-doc) at Robert Bosch Centre for DS and AI ([RBCDSAI](https://rbcdsai.iitm.ac.in/)) where I was advised by [Prof. Balaraman Ravindran](https://dsai.iitm.ac.in/~ravi/). Before that, I worked as a software engineer at [Sprinklr](https://www.sprinklr.com/). I completed my undergraduate studies at the Indian Institute of Technology Bombay in 2022.
 
-<br>
-<br>
-
 ### Publications
 - **PREFINe: Preference-Based Implicit Reward and Cost Fine-Tuning for Safety Alignment** \\
   Richa Verma, **Bavish Kulur**, Sanjay Chawla, Balaraman Ravindran \\

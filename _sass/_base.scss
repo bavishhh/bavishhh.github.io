@@ -939,6 +939,24 @@ html.transition *:after {
     font-weight: 400;
   }
 
+  strong,
+  b {
+    font-weight: 700;
+  }
+
+  .about-header {
+    margin-bottom: 2.5rem;
+
+    .post-title {
+      font-weight: 700;
+    }
+  }
+
+  .about-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
   h1 {
     font-size: 1.75rem;
   }
