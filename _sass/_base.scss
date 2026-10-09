@@ -245,7 +245,9 @@ ul.task-list input[type="checkbox"] {
 
 .navbar {
   box-shadow: none;
-  border-bottom: 1px solid var(--global-divider-color);
+  border-bottom: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: var(--global-bg-color);
   backdrop-filter: blur(5px);
   background: transparent;
@@ -278,6 +280,19 @@ ul.task-list input[type="checkbox"] {
 }
 
 .navbar.navbar-light {
+  // Keep the menu centered independently of the title on inner pages.
+  > .container {
+    flex-direction: column;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    margin-right: auto;
+  }
+
   a {
     &:hover {
       text-decoration: none;
@@ -286,23 +301,30 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
+    margin-right: 0;
+    font-size: 0.875rem;
   }
 
   .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
+    color: var(--global-text-color-light);
+    font-size: 0.875rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
 
     &:hover {
-      color: var(--global-hover-color);
+      color: var(--global-text-color-light);
+      text-decoration: underline;
     }
   }
 
   .navbar-nav .nav-item.active > .nav-link {
     background-color: inherit;
-    font-weight: bolder;
+    font-weight: 500;
     color: var(--global-theme-color);
 
     &:hover {
-      color: var(--global-hover-color);
+      color: var(--global-theme-color);
+      text-decoration: underline;
     }
   }
 
