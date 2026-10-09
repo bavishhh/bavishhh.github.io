@@ -15,7 +15,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a graduate student at the University of Alberta, part of the [RLAI](https://rlai.ualberta.ca/) lab, advised by [Prof. Marlos Machado](https://webdocs.cs.ualberta.ca/~machado/index.html). I'm currently working on exploration in continual reinforcement learning. 
+I am a graduate student at the University of Alberta, part of the [RLAI](https://rlai.ualberta.ca/) lab, advised by [Prof. Marlos Machado](https://webdocs.cs.ualberta.ca/~machado/index.html). I'm currently working on unsupervised skill discovery in reinforcement learning. 
 
 Previously, I was a research fellow (pre-doc) at Robert Bosch Centre for DS and AI ([RBCDSAI](https://rbcdsai.iitm.ac.in/)) where I was advised by [Prof. Balaraman Ravindran](https://dsai.iitm.ac.in/~ravi/). Before that, I worked as a software engineer at [Sprinklr](https://www.sprinklr.com/). I completed my undergraduate studies at the Indian Institute of Technology Bombay in 2022.
 
