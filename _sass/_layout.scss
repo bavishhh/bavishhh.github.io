@@ -27,8 +27,23 @@ body.fixed-top-nav {
 }
 
 body.sticky-bottom-footer {
-  // Remove padding below footer.
+  // Keep short-page footers at the viewport bottom without covering content.
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding-bottom: 0;
+
+  > header,
+  > footer {
+    flex-shrink: 0;
+  }
+
+  > .container[role="main"],
+  > .post.distill {
+    flex: 1 0 auto;
+    width: 100%;
+  }
 }
 
 .container {
