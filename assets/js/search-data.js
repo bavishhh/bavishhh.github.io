@@ -23,7 +23,25 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-zotero-tips-and-tricks",
+        },{id: "nav-projects",
+          title: "projects",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "post-interpreting-linear-regression-solution",
+      
+        title: "Interpreting Linear Regression Solution",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2026/linear-regression/";
+        
+      },
+    },{id: "post-zotero-tips-and-tricks",
       
         title: "Zotero Tips and Tricks",
       
